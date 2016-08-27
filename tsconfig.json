@@ -1,0 +1,9 @@
+{
+	"compilerOptions": {
+		"target": "ES5",
+		"module": "system",
+        "removeComments": true,
+        "outFile": "build/game.js",
+		"sourceMap": false
+	}
+}

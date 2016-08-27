@@ -1,0 +1,15 @@
+{
+  "name": "asteroids",
+  "version": "1.0.0",
+  "description": "Simple shooting game",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Zee",
+  "license": "ISC",
+    "dependencies": {
+    "http": "0.0.0",
+    "node-static": "^0.7.7"
+  }
+}
