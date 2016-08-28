@@ -1,32 +1,21 @@
-﻿module Game {
-    export class ExtremeWalkingSimulator {
-        game: Phaser.Game;
+﻿module Game.Client {
+
+    export class GameEngine extends Phaser.Game {
 
         constructor() {
-            this.game = new Phaser.Game(1280, 720, Phaser.AUTO, 'content', {
-                create: this.create,
-                preload: this.preload
-            });
-        }
+            super(1024, 800, Phaser.AUTO, 'content', null);
 
-        preload() {
-            // Graphics
-            this.game.load.image("title", "/assets/ui/title_screen.png");
-            this.game.load.image("title", "/assets/ui/game_over.png");
-            this.game.load.image("scene", "/assets/sprites/scene720p.png");
+            this.state.add('Boot', Boot, false);
+            this.state.add('Preloader', Preloader, false);
+            this.state.add('MainMenu', MainMenu, false);
+            this.state.add('Level01', Level01, false);
 
-            // Spritesheets
-            this.game.load.atlasXML("HERO_WALKING", "/assets/sprites/hero_walking.xml");
-            this.game.load.atlasXML("HERO_IDLE", "/assets/sprites/hero_idle.xml");
-
-            // Audio
-            this.game.load.audio("TITLE_SONG", ["/assets/sounds/title_song.mp3", "/assets/sounds/title_song.ogg", "/assets/sounds/title_song.wav"]);
+            this.state.start('Boot');
 
         }
-
-        create() {
-
-        }
-
     }
 }
+
+window.onload = () => {
+    new Game.Client.GameEngine();
+};
